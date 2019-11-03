@@ -2,6 +2,10 @@ UnityHack
 ====
 A set of snippets to extend Unity Editor.
 
+Before you start
+----
+All of snippets from this repository only work inside Unity Editor.<br>
+You must place your code inside `Editor` directory to avoid build errors.
 
 Bootstrap your plugin
 ----
@@ -172,5 +176,25 @@ private static void OnHierarchyChanged()
 
     var addedComponent = comps.Last();
     /* Do your stuff! */ 
+}
+```
+
+
+Drag and Drop
+----
+
+__Asset drag detection__<br>
+You can watch `BeginDrag` for your assets with below code:
+```cs
+EditorApplication.update += OnUpdate;
+```
+```cs
+static void OnUpdate()
+{
+    if (DragAndDrop.paths.Length > 0 &&
+        !(Selection.activeObject is GameObject))
+    {
+        // DragAndDrop.objectReferences;
+    }
 }
 ```
