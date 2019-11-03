@@ -2,6 +2,10 @@ UnityHack
 ====
 A set of snippets to extend Unity Editor.
 
+Before you start
+----
+All of snippets from this repository only work inside Unity Editor.<br>
+You must place your code inside `Editor` directory to avoid build errors.
 
 Bootstrap your plugin
 ----
