@@ -197,3 +197,39 @@ static void OnUpdate()
     }
 }
 ```
+
+Object Picking
+----
+You can retrive gameObjects with a XY position using `HandleUtility.PickGameObject`. This is slightly better than `Physics.Raycast` since it does not require `Collider` on the GameObject.
+
+```cs
+SceneView.duringSceneGui += HandleSceneEvents;
+```
+```cs
+static void HandleSceneEvents() {
+    if (e == null) return;
+    if (e.type == EventType.MouseDown) {
+        var picked = HandleUtility.PickGameObject(
+            Event.current.mousePosition, false);
+        Debug.Log(picked);
+    }
+}
+```
+
+__Pick ALL objects with current mouse position__
+```cs
+var ignoreList = new List<GameObject>();
+while (true)
+{
+    var picked = HandleUtility.PickGameObject(
+        Event.current.mousePosition, false,
+        ignoreList.ToArray());
+
+    if (picked == null)
+        break;
+
+    Debug.Log(picked);
+
+    ignoreList.Add(picked);
+}
+```
