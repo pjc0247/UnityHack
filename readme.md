@@ -79,7 +79,7 @@ private static UndoPropertyModification[] OnPostProcessModifications(UndoPropert
 }
 ```
 
-Graphics inside SceneView
+Rendering inside SceneView
 ----
 `OnDrawGizmo` is a traditional way to draw something inside SceneView. However, you must have a `GameObject` to receive `OnDrawGizmo` callback from Unity.<br>
 You can also use `SceneView.duringSceneGui` to draw your stuffs without active `GameObject`.
@@ -125,7 +125,7 @@ public static void DrawString(string text, Vector3 position, Color? color = null
 }
 ```
 
-Object creation detection
+Detecting object creation
 ----
 
 __Detect GameObject creation__
